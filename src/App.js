@@ -1,11 +1,13 @@
 
 import './App.css';
+import FormComponent from './components/form-component';
+import ImagesComponent from './components/images-component';
 
 function App() {
   return (
     <div className="App">
-      <h1>Oscar Anillo</h1>
-      <p>Web UI Developer</p>
+      <ImagesComponent />
+      <FormComponent />
     </div>
   );
 }

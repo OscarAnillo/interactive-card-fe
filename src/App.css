@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,5 +7,14 @@
 
 .App {
   text-align: center;
+  font-family: 'Space Grotesk', sans-serif;
 }
 
+img {
+  max-width: 100%;
+}
+
+.img-bg {
+  background-image: url('/public/images/bg-main-mobile.png');
+  height: 240px;
+}
