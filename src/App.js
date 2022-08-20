@@ -1,7 +1,7 @@
+import ImagesComponent from './components/images-component';
+import FormComponent from './components/form-component';
 
 import './App.css';
-import FormComponent from './components/form-component';
-import ImagesComponent from './components/images-component';
 
 function App() {
   return (
