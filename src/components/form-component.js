@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import CompleteComponent from './complete-component';
 
 export default function FormComponent(){
     const [userInput, setUserInput] = useState({
@@ -8,6 +9,7 @@ export default function FormComponent(){
         year: '',
         cvv: ''
     })
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
     const changeHandler = (e) => {
         const {name, value} = e.target;
@@ -19,11 +21,17 @@ export default function FormComponent(){
 
     const submitHandler = (e) => {
         e.preventDefault();
+        if(!userInput.name){
+            alert('Fill out the form!')
+            return;
+        }
+        setIsSubmitted(true)
     }
 
     const {name, number, month, year, cvv} = userInput;
     return (
         <section className="section-text">
+        {!isSubmitted ? 
             <form onSubmit={submitHandler}>
                 <label>Cardholder name</label>
                 <input type="text" placeholder="e.g. Oscar Anillo" name="name" value={name} onChange={changeHandler}/>
@@ -42,6 +50,7 @@ export default function FormComponent(){
                     </div>
                 <button type="submit">Confirm</button>
             </form>
+            : <CompleteComponent /> }
         </section>
     )
 }
