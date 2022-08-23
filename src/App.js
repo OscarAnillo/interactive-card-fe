@@ -6,8 +6,10 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <ImagesComponent />
-      <FormComponent />
+      <div className="row">
+        <ImagesComponent />
+        <FormComponent />
+      </div>
     </div>
   );
 }
