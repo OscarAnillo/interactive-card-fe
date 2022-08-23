@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import CompleteComponent from './complete-component';
 
+import { useDispatch } from 'react-redux';
+import { setUserInfo } from '../redux/features/slice';
+
 export default function FormComponent(){
     const [userInput, setUserInput] = useState({
         name: '',
@@ -11,6 +14,7 @@ export default function FormComponent(){
     })
     const [formErrors, setFormErrors] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const dispatch = useDispatch();
 
     const changeHandler = (e) => {
         const {name, value} = e.target;
@@ -18,6 +22,7 @@ export default function FormComponent(){
             ...userInput,
             [name] : value
         })
+        dispatch(setUserInfo(...userInput))
     }
 
     const validateData = (values) => {
