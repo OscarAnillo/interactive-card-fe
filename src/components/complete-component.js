@@ -4,7 +4,7 @@ export default function CompleteComponent(){
             <img src="/images/icon-complete.svg" alt="" />
             <h1>Thank You!</h1>
             <p>We've added your card details</p>
-            <button>Continue</button>
+            <button><a href="/">Continue</a></button>
         </div>
     )
 }
