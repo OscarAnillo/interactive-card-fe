@@ -1,6 +1,5 @@
 import ImagesComponent from './components/images-component';
 import FormComponent from './components/form-component';
-
 import './App.css';
 
 function App() {
