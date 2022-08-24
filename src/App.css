@@ -14,6 +14,7 @@
   background-position: center;
   background-size: cover;
   background-origin: border-box;
+  overflow: hidden;
 }
 
 img {
@@ -502,7 +503,6 @@ img {
     top: 72%;
     left: 10px;
   }
-
   .error-style-row-year {
     font-size: 12px;
     position: absolute;

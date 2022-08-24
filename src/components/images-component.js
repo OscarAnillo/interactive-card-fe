@@ -1,10 +1,11 @@
-import { useSelector } from "react-redux"
+import { useSelector } from "react-redux";
+import 'animate.css';
 
 export default function ImagesComponent(){
     const userData = useSelector((state) => state.formReducer.userInfo);
 
     return (
-        <section className="section-img">
+        <section className="section-img animate__animated animate__bounceInLeft">
             <div className="img-bg"></div>
             <img src="/images/bg-card-back.png" alt="" className="back" />
             <p className="user-data-cvv">{userData.cvv}</p>

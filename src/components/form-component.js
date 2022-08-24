@@ -3,6 +3,7 @@ import CompleteComponent from './complete-component';
 
 import { useDispatch } from 'react-redux';
 import { setUserInfo } from '../redux/features/slice';
+import 'animate.css';
 
 export default function FormComponent(){
     const [userInput, setUserInput] = useState({
@@ -65,7 +66,7 @@ export default function FormComponent(){
     const {name, number, month, year, cvv} = userInput;
 
     return (
-        <section className="section-text">
+        <section className="section-text animate__animated animate__bounceInRight">
         {!isSubmitted ? 
             <form onSubmit={submitHandler} autoComplete="off">
                 <label>Cardholder name</label>
