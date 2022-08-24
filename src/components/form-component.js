@@ -27,12 +27,15 @@ export default function FormComponent(){
 
     const validateData = (values) => {
         const errors = {};
+        const numberRegex = /^[0-9]*$/
 
         if (!values.name) {
-          errors.name = "cardholder name is required";
+          errors.name = "Cardholder name is required";
         }
         if (!values.number) {
-          errors.number = "card number is required";
+          errors.number = "Card number is required";
+        } else if (!numberRegex.test(values.number)){
+          errors.number = "Wrong format, numbers only";
         }
         if (!values.month) {
           errors.month = "Can't be blank";
@@ -69,18 +72,18 @@ export default function FormComponent(){
                 <input type="text" placeholder="e.g. Oscar Anillo" name="name" value={name} onChange={changeHandler}/>
                 <div className="error-style"><span>{formErrors.name}</span></div>
                 <label>Card number</label>
-                <input type="number" placeholder="e.g. 1234 5678 9123 0000" name="number" value={number} onChange={changeHandler}/>
+                <input type="text" placeholder="e.g. 1234 5678 9123 0000" name="number" value={number} onChange={changeHandler} maxLength={16} />
                 <div className="error-style"><span>{formErrors.number}</span></div>
                     <div>
                         <label>Exp. date (mm/yy)</label>
                         <label className="label-cvv">cvv</label>
                         <div className="form-row">
-                            <input type="number" placeholder="MM" className="mm" name="month" value={month} onChange={changeHandler}/>
+                            <input type="text" placeholder="MM" className="mm" name="month" value={month} onChange={changeHandler} maxLength={2} />
                             <div className="error-style-row-month"><span>{formErrors.month}</span></div>
-                            <input type="number" placeholder="YY" className="yy" name="year" value={year} onChange={changeHandler}/>
+                            <input type="text" placeholder="YY" className="yy" name="year" value={year} onChange={changeHandler} maxLength={2} />
                             <div className="error-style-row-year"><span>{formErrors.year}</span></div>
                         <div>
-                            <input type="number" placeholder="e.g. 123" className="cvv" name="cvv" value={cvv} onChange={changeHandler}/>
+                            <input type="text" placeholder="e.g. 123" className="cvv" name="cvv" value={cvv} onChange={changeHandler} maxLength={3} />
                             <div className="error-style-row-cvv"><span>{formErrors.cvv}</span></div>
                         </div>
                         </div>
