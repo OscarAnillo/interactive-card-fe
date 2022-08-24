@@ -3,7 +3,6 @@ import { useSelector } from "react-redux"
 export default function ImagesComponent(){
     const userData = useSelector((state) => state.formReducer.userInfo);
 
-    console.log(userData)
     return (
         <section className="section-img">
             <div className="img-bg"></div>

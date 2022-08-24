@@ -17,12 +17,12 @@ export default function FormComponent(){
     const dispatch = useDispatch();
 
     const changeHandler = (e) => {
-        const {name, value} = e.target;
-        setUserInput({
+         const {name, value} = e.target;
+         setUserInput({
             ...userInput,
             [name] : value
         })
-        dispatch(setUserInfo(...userInput))
+        dispatch(setUserInfo(e))
     }
 
     const validateData = (values) => {
@@ -49,7 +49,7 @@ export default function FormComponent(){
     const submitHandler = (e) => {
         e.preventDefault();
         setFormErrors(validateData(userInput))
-        if(userInput.name && userInput.number && userInput.month && userInput.year && userInput.cvv)setIsSubmitted(true);
+        if(userInput.name && userInput.number && userInput.month && userInput.year && userInput.cvv) setIsSubmitted(true);
         
     }
     

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+let initialState = {
     userInfo: {
         name: 'Oscar Anillo',
         number: '0000 0000 0000 0000',
@@ -23,5 +23,5 @@ const formSlice =  createSlice({
     }
 })
 
-export const { setUserInfo }= formSlice.actions;
+export const { setUserInfo } = formSlice.actions;
 export default formSlice.reducer;
