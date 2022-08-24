@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import CompleteComponent from './complete-component';
 
+import { useDispatch } from 'react-redux';
+import { setUserInfo } from '../redux/features/slice';
+
 export default function FormComponent(){
     const [userInput, setUserInput] = useState({
         name: '',
@@ -11,13 +14,15 @@ export default function FormComponent(){
     })
     const [formErrors, setFormErrors] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const dispatch = useDispatch();
 
     const changeHandler = (e) => {
-        const {name, value} = e.target;
-        setUserInput({
+         const {name, value} = e.target;
+         setUserInput({
             ...userInput,
             [name] : value
         })
+        dispatch(setUserInfo(e))
     }
 
     const validateData = (values) => {
@@ -44,7 +49,7 @@ export default function FormComponent(){
     const submitHandler = (e) => {
         e.preventDefault();
         setFormErrors(validateData(userInput))
-        if(userInput.name && userInput.number && userInput.month && userInput.year && userInput.cvv)setIsSubmitted(true);
+        if(userInput.name && userInput.number && userInput.month && userInput.year && userInput.cvv) setIsSubmitted(true);
         
     }
     
